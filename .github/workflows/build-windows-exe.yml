@@ -30,4 +30,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: tc_guidl
-          path: dist/tc_guidl.exe  # Pfad zur erstellten EXE-Datei
+          path: bin/tc_guidl.exe  # Pfad zur erstellten EXE-Datei
+          if-no-files-found: error  # Legt fest, dass der Schritt fehlschlägt, wenn keine Datei gefunden wird
