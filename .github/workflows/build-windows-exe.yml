@@ -1,0 +1,33 @@
+name: Build Windows EXE
+
+on:
+  workflow_dispatch:  # Ermöglicht das manuelle Ausführen des Workflows
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13.3'  # oder die benötigte Python-Version
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Installiert Abhängigkeiten aus requirements.txt
+          pip install pyinstaller
+
+      - name: Build EXE
+        run: |
+          pyinstaller main.spec
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v3
+        with:
+          name: tc_guidl
+          path: dist/tc_guidl.exe  # Pfad zur erstellten EXE-Datei
