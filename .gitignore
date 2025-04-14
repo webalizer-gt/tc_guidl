@@ -173,5 +173,7 @@ config.json
 vlc_tc_dl.py
 venv/
 vbuild/
+screenshots/
+bin/
 *.code-workspace
 *.bak
