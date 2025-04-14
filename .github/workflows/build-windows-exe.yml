@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # Aktualisiert auf die neueste Version
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -27,7 +27,7 @@ jobs:
           pyinstaller main.spec
 
       - name: Upload EXE
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Aktualisiert auf die neueste Version
         with:
           name: tc_guidl
           path: bin/tc_guidl.exe  # Pfad zur erstellten EXE-Datei
